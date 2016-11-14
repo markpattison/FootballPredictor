@@ -54,7 +54,7 @@ module LeagueRecordTests =
 
     [<Test>]
     let ``premier league 2016-17 after ten games`` ()=
-        let results = ResultsReader.readCsv @"E:\Prog\Visual Studio 2015\Projects\FootballPredictor\Football.UnitTests\data\prem201617tengames.csv"
+        let results = ResultsReader.readCsv @"E:\Prog\Visual Studio 2015\Projects\FootballPredictor\Football.UnitTests\data\prem201617 up to 30 Oct.csv"
         let teams = getAllTeams results
 
         let leagueTable =
@@ -83,7 +83,7 @@ module LeagueRecordTests =
 
     [<Test>]
     let ``premier league 2016-17 after ten games - remaining fixtures`` ()=
-        let results = ResultsReader.readCsv @"E:\Prog\Visual Studio 2015\Projects\FootballPredictor\Football.UnitTests\data\prem201617tengames.csv"
+        let results = ResultsReader.readCsv @"E:\Prog\Visual Studio 2015\Projects\FootballPredictor\Football.UnitTests\data\prem201617 up to 30 Oct.csv"
         let teams = getAllTeams results
 
         let remainingFixtures = League.remainingFixtures teams results
@@ -92,7 +92,7 @@ module LeagueRecordTests =
 
     [<Test>]
     let ``a test`` ()=
-        let results = ResultsReader.readCsv @"E:\Prog\Visual Studio 2015\Projects\FootballPredictor\Football.UnitTests\data\prem201617tengames.csv"
+        let results = ResultsReader.readCsv @"E:\Prog\Visual Studio 2015\Projects\FootballPredictor\Football.UnitTests\data\prem201617 up to 30 Oct.csv"
         let teams = getAllTeams results
 
         let results = Projection.projections teams results
