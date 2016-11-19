@@ -92,9 +92,17 @@ module LeagueRecordTests =
 
     [<Test>]
     let ``a test`` ()=
+        let resultGenerator fixture =
+            {
+                HomeTeam = fixture.Home
+                AwayTeam = fixture.Away
+                HomeScore = Random.getPoisson 2.5
+                AwayScore = Random.getPoisson 2.0
+            }
+
         let results = ResultsReader.readCsv @"E:\Prog\Visual Studio 2015\Projects\FootballPredictor\Football.UnitTests\data\prem201617 up to 30 Oct.csv"
         let teams = getAllTeams results
 
-        let results = Projection.projections teams results
+        let results = Projection.projections resultGenerator teams results
 
         1 |> should equal 1

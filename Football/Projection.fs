@@ -1,21 +1,13 @@
 ﻿module Football.Projection
 
-let singleMatch fixture =
-    {
-        HomeTeam = fixture.Home
-        AwayTeam = fixture.Away
-        HomeScore = Poisson.getNext 2.5
-        AwayScore = Poisson.getNext 2.0
-    }
-
-let singleProjection fixtures =
+let singleProjection resultGenerator fixtures =
     fixtures
-    |> List.map singleMatch
+    |> List.map resultGenerator
 
 let findRecord team l =
     l |> List.find (fun lr -> lr.Team = team)
 
-let projections teams results =
+let projections resultGenerator teams results =
     let recordsSoFar = League.compileAllRecords teams results
 
     let remainingFixtures = League.remainingFixtures teams results
@@ -25,7 +17,7 @@ let projections teams results =
     let finalTables = 
         [1 .. simulations]
         |> List.map (fun _ ->
-            let futureResults = singleProjection remainingFixtures
+            let futureResults = singleProjection resultGenerator remainingFixtures
             let futureRecords = League.compileAllRecords teams futureResults
             let finalRecords =
                 teams

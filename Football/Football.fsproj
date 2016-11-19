@@ -46,7 +46,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Match.fs" />
     <Compile Include="LeagueRecord.fs" />
-    <Compile Include="Poisson.fs" />
+    <Compile Include="Random.fs" />
     <Compile Include="Projection.fs" />
   </ItemGroup>
   <PropertyGroup>
